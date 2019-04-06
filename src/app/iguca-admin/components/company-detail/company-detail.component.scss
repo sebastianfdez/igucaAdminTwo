@@ -1,0 +1,166 @@
+:host {
+  width: 70%;
+  min-width: 700px;
+  align-items: center;
+  display: flex;
+  margin: 30px;
+  overflow: scroll;
+  flex-direction: column;
+}
+
+mat-spinner {
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  top: 0;
+  bottom: 0;
+  margin-top: auto;
+  margin-bottom: auto;
+  position: absolute;
+}
+
+.menu-logo {
+  width: 300px;
+
+  .menu-logo-img {
+    width: 300px;
+    height: auto;
+  }
+}
+
+.company-management-content {
+  min-height: fit-content;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .company-management-main-title-span {
+    font-size: 35px;
+    line-height: 44px;
+    text-align: start;
+    color: #282d31;
+
+    .company-management-subtitle-span {
+      font-size: 22px;
+      line-height: 44px;
+      text-align: start;
+      color: #282d31; 
+      margin-left: 20px;
+      flex: 1;
+      text-transform: capitalize;
+    } 
+  }
+
+  .company-management-field {
+    width: calc(100% - 40px);
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    background-color: #ffffff;
+    align-items: center;
+
+    .company-form {
+      height: 100%;
+      display: flex;
+      width: calc(100% - 60px);
+      margin: 0 30px;
+      margin-top: 20px;
+    }
+
+    .company-management-title {
+      padding: 15px 0;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      background-color: #FB1D5E;
+      color: #ffffff;
+  
+      .company-management-title-span {
+        font-size: 35px;
+        line-height: 44px;
+        text-align: start;
+        word-break: break-all;
+        height: 50px;
+        overflow: hidden;
+      } 
+    }
+
+    .company-management-input {
+      display: flex;
+      margin-top: 20px;
+      width: 100%;
+
+      .company-form {
+        height: 100%;
+        display: flex;
+        width: calc(100% - 60px);
+        margin: 0 30px;
+        margin-top: 20px;
+      }
+
+      .company-management-subtitle-span {
+        font-size: 22px;
+        line-height: 44px;
+        text-align: start;
+        color: #282d31; 
+        margin-left: 20px;
+        flex: 1;
+        text-transform: capitalize;
+      }
+
+      .company-management-idSense-span { 
+        font-size: 18px;
+        line-height: 44px;
+        text-align: end;
+        color: #282d31; 
+        margin-left: 20px;
+        margin-right: 20px;
+      }
+
+      .button-delete { 
+        width: fit-content;
+        display: flex;
+        height: 36px;
+        width: 150px;
+    
+        .mat-button { 
+          width: 100%;
+          background-color: red;
+          margin-right: 20px;
+          font-size: 14px; 
+          color: #ffffff;
+        }
+      }
+    }
+      
+    .company-management-input-idSence {
+      display: flex;
+      width: 100%;
+    }
+
+    .button-add-course {
+      width: 300px;
+
+      .mat-flat-button {
+        width: 100%;
+        margin: 10px;
+        font-size: 20px;
+        margin: 10px 0;
+        font-size: 14px;
+      }
+    }
+  }
+
+  .send-company-button {
+    margin: 10px 0;
+    width: 300px;
+    max-width: 300px;
+
+    .mat-flat-button {
+      width: 300px;
+    }
+  }
+}

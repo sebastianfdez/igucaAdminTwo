@@ -1,0 +1,29 @@
+<div class="existing-courses-content">
+
+  <div class="course-loader-title">
+    <span class="course-loader-title-span">
+      Administrador de {{ isCourses ? 'Cursos' : 'Compañias'}}
+    </span>
+  </div>
+
+  <div class="course-loader">  
+    <div class="course-element mat-elevation-z2" *ngFor="let course of (isCourses ? courses : companies); let i = index">
+      <div class="course-name">
+          <span class="course-loader-name-span">
+            {{ course.name }}
+          </span>
+      </div>
+      <button mat-button class="button-edit" (click)="editCourse(course.key)">Editar {{ isCourses ? 'Curso' : 'Compañia'}}</button>
+      <button mat-button class="button-delete" (click)="deleteCourse(course)">Eliminar {{ isCourses ? 'Curso' : 'Compañia'}}</button>
+    </div>
+  </div> 
+
+  <div class="menu-new-course">
+    <button mat-button (click)="newCourse()">Agregar Nuevo {{ isCourses ? 'Curso' : 'Compañia'}}</button>
+  </div>
+
+  <div class="home-buttons">
+    <button mat-button class="home-page-button" (click)="homePage()">Volver a Inicio</button> 
+  </div>
+</div>
+

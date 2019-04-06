@@ -1,0 +1,87 @@
+
+
+.reports-content {
+    height: 100%;
+    min-height: fit-content;
+    width: calc(100% - 40px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 20px;
+    overflow-y: scroll;
+    place-content: center;
+
+    .home-button {
+        width: 100%;
+        margin: 5px 0;
+        display: flex;
+        margin-top: 30px;
+        flex-direction: column;
+        align-items: center;
+
+        .mat-button {
+            color: #ffffff;
+            background-color: #FB1D5E;
+            width: 300px;
+        }
+    }
+    
+    .course-list { 
+        background-color: #ffffff;
+        margin-top: 40px;
+
+        .report-main-title { 
+            font-size: 35px;
+            line-height: 44px;
+            color: #ffffff;
+            display: flex;
+            text-align: center;
+            background: #f44336;
+            padding: 20px;
+            place-content: center;
+        } 
+            
+        .report-span {
+            margin-top: 10px; 
+            display: flex;
+            width: 100%;
+
+            .report-sub-title { 
+                margin-left: 20px;
+                margin-right:  20px; 
+                font-size: 25px;
+                line-height: 44px;
+                text-align: start;
+                color: #252627;
+                height: 44px;
+                overflow: hidden;
+                word-break: break-all;
+                display: flex;
+                -webkit-box-flex: 1;
+                width: 100%;
+            }
+
+            .button-export {
+
+                .data-loader { 
+                    display: flex;
+
+                    .delete-button {
+                        color: #ffffff;
+                        background-color: red;
+                        width: 140px;
+                        margin-right: 20px;
+                    }
+
+                    .excel-button { 
+                        color: #ffffff;
+                        background-color: #FB1D5E;
+                        width: 140px;
+                        margin-right: 20px;
+                    }
+                }
+                
+            }
+        }
+    }
+} 

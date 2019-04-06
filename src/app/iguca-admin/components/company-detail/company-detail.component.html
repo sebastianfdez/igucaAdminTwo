@@ -1,0 +1,105 @@
+
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+<div class="menu-logo" *ngIf="isLoading">
+  <img class="menu-logo-img" src="../../../../assets/Logoblancofondofucsia.jpg"/>
+</div>
+<div  *ngIf="!isLoading" class="company-management-content">
+  <div class="company-management-main-title">
+    <span class="company-management-main-title-span" *ngIf="isNewCompany">
+      Agregar nueva Compania
+    </span>
+    <span class="company-management-main-title-span" *ngIf="!isNewCompany">
+      Editar Compania
+    </span>
+  </div> 
+
+  <div class="company-management-field mat-elevation-z1">
+
+    <div class="company-management-title">
+      <span class="company-management-title-span">
+        Nombre de la Compania
+      </span>
+    </div>
+    
+    <form class="company-management-input">
+      <mat-form-field class="company-form">
+        <input matInput placeholder="Nombre de la Compania" [(ngModel)]="openCompany.name" [ngModelOptions]="{standalone: true}" >
+      </mat-form-field>
+    </form>
+
+  </div>
+
+  <div class="company-management-field mat-elevation-z1">
+
+    <div class="company-management-title">
+      <span class="company-management-title-span">
+        Cursos de la Compania
+      </span>
+    </div>
+    
+    <div class="company-management-input" *ngFor="let course of companyCoursesNames; let i = index">
+      <form class="company-management-input">
+        <span class="company-management-subtitle-span">
+          {{course}}
+        </span>
+        <span class="company-management-idSense-span">
+          ID: {{openCompany.idSence[i]}}
+        </span>
+
+        <div class="button-delete">  
+          <button mat-button (click)="deleteCourse(course, openCompany.idSence[i])">Eliminar</button>
+        </div>
+      </form>
+    </div>
+    
+    <mat-form-field class="company-form">
+      <mat-select placeholder="Cursos Disponibles" [(value)]="newCourse" [ngModelOptions]="{standalone: true}" >
+        <mat-option *ngFor="let course of coursesNotSelected" [value]="course">
+          {{ course.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <form class="company-management-input-idSence">
+      <mat-form-field class="company-form">
+        <input matInput placeholder="ID Sence" [(ngModel)]="newIdSence" [ngModelOptions]="{standalone: true}">
+      </mat-form-field>
+    </form>
+
+    <div class="button-add-course">
+      <button mat-flat-button (click)="addCourse()" color="primary" [disabled]="!newCourse || newIdSence ===''"
+      style="width: 100%">Agregar Curso</button>
+    </div>
+  </div> 
+
+  <div class="company-management-field mat-elevation-z1">
+    <div class="company-management-title">
+      <span class="company-management-title-span">Subir documentos de la Compania</span>
+    </div>
+
+    <div class="company-management-subtitle">
+      <span class="company-management-subtitle-span document-manual">Icono de la Compania</span>
+    </div>
+    <input type="file" ng2FileSelect [uploader]="fileLoaderIcon" multiple/>
+
+    <div class="company-form" *ngFor="let item of fileLoaderIcon.queue">
+
+      <span  class="file-span">{{item?.file?.name}}</span>
+      <button mat-button type="button" class="file-button" (click)="deleteManual(item)">Eliminar</button>
+    </div>
+    <div class="existing-file">
+      <a target="blank_" href="{{urlIcon}}" *ngIf="urlIcon !== ''"><img src="{{urlIcon}}" width="300" height="210" ></a>
+    </div>
+  </div>
+
+  <div class="send-company-button">
+    <button mat-flat-button  color="primary" *ngIf="isNewCompany" [disabled]="!openCompany || openCompany?.name == '' || openCompany.courses?.length === 0"
+      (click)="sendCompany()" >Agregar Compania</button>
+  </div>
+
+  <div class="send-company-button">
+    <button mat-flat-button color="primary" *ngIf="!isNewCompany" [disabled]="!openCompany || openCompany.name == '' || openCompany.courses?.length === 0"
+      (click)="updateCompany()">Editar Compania</button>
+  </div>
+
+</div>
