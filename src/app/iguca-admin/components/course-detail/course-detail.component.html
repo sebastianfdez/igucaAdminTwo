@@ -122,7 +122,7 @@
     </div>
 
     <mat-button-toggle-group #group="matButtonToggleGroup" [value]="openCourse.alternatives ? 'alternatives' : 'openquestion'"
-      (change)="alternativeOptionChange($event)">
+      (change)="alternativeOptionChange($event)" [disabled]="!isNewCourse">
       <mat-button-toggle value="alternatives">
         <mat-icon>Alternativas</mat-icon>
       </mat-button-toggle>
@@ -225,6 +225,12 @@
         <div class="main-question">
           <mat-form-field>
             <input matInput placeholder="Pregunta {{question.number}} :" [(ngModel)]="question.question" [ngModelOptions]="{standalone: true}">
+          </mat-form-field>
+        </div>
+
+        <div class="main-question">
+          <mat-form-field>
+            <input matInput placeholder="Link video (opcional)" [(ngModel)]="question.link" [ngModelOptions]="{standalone: true}">
           </mat-form-field>
         </div>
         

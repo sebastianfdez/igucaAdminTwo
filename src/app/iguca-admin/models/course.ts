@@ -13,6 +13,7 @@ export class IgucaQuestion {
     answer: string;
     alternatives: boolean;
     hasFile: boolean;
+    link: string;
   }
 
   export class IgucaCourse {

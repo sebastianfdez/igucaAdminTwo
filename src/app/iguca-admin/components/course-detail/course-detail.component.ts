@@ -35,6 +35,8 @@ export class CourseDetailComponent implements OnInit {
   originalQuestionsNumber = 0;
   statusText: string[] = [];
 
+  expireDate: Date;
+
   examFile: FileItem;
   manualFile: FileItem;
   exerciseFile: FileItem;
@@ -85,11 +87,22 @@ export class CourseDetailComponent implements OnInit {
         try {
           const URL_ref_Question = this.afStorage.ref(this.openCourseKey).child(`Question${q.number}`);
           console.log(URL_ref_Question);
-          URL_ref_Question.getDownloadURL().subscribe(url => this.urlQuestion[q.number - 1] = url);
+          URL_ref_Question.getDownloadURL().subscribe((url) => {
+            this.urlQuestion[q.number - 1] = url;
+          }, (error) => {
+            console.log(error);
+          });
         } catch (e) {
         }
       });
     }
+  }
+
+  deleteQuestionFile(question: IgucaQuestion, file) {
+    this.fileLoaderQuestions[question.number - 1].queue = this.fileLoaderQuestions[question.number - 1].queue.filter((file_) => {
+      return file_ !== file;
+    });
+    question.hasFile = false;
   }
 
   setFileUploadersListeners() {
@@ -196,6 +209,30 @@ export class CourseDetailComponent implements OnInit {
     } else {
       this.makeDelete(question);
     }
+  }
+
+  deleteManual(file) {
+    this.fileLoaderManual.queue = this.fileLoaderManual.queue.filter((file_) => {
+      return file_ !== file;
+    });
+  }
+
+  deleteExercise(file) {
+    this.fileLoaderExersices.queue = this.fileLoaderExersices.queue.filter((file_) => {
+      return file_ !== file;
+    });
+  }
+
+  deleteExam(file) {
+    this.fileLoaderExam.queue = this.fileLoaderExam.queue.filter((file_) => {
+      return file_ !== file;
+    });
+  }
+
+  deleteAnswers(file) {
+    this.fileLoaderAnswers.queue = this.fileLoaderAnswers.queue.filter((file_) => {
+      return file_ !== file;
+    });
   }
 
   makeDelete(question: IgucaQuestion) {
