@@ -1,14 +1,21 @@
-
+<div class="back-iguca" *ngIf="!isLoading">
+  <button mat-flat-button class="big" color="primary" routerLink="/companies">
+    {{"< Volver"}}
+  </button>
+  <button mat-flat-button class="small" color="primary" routerLink="/companies">
+    {{"<"}}
+  </button>
+</div>
 <mat-spinner *ngIf="isLoading"></mat-spinner>
-<div class="menu-logo" *ngIf="isLoading">
-  <img class="menu-logo-img" src="../../../../assets/Logoblancofondofucsia.jpg"/>
+<div class="menu-logo-iguca" *ngIf="isLoading">
+  <img src="../../../../assets/Logoblancofondofucsia.jpg"/>
 </div>
 <div  *ngIf="!isLoading" class="company-management-content">
-  <div class="company-management-main-title">
-    <span class="company-management-main-title-span" *ngIf="isNewCompany">
+  <div class="iguca-title">
+    <span *ngIf="isNewCompany">
       Agregar nueva Compania
     </span>
-    <span class="company-management-main-title-span" *ngIf="!isNewCompany">
+    <span *ngIf="!isNewCompany">
       Editar Compania
     </span>
   </div> 
@@ -83,9 +90,7 @@
     <input type="file" ng2FileSelect [uploader]="fileLoaderIcon" multiple/>
 
     <div class="company-form" *ngFor="let item of fileLoaderIcon.queue">
-
       <span  class="file-span">{{item?.file?.name}}</span>
-      <button mat-button type="button" class="file-button" (click)="deleteManual(item)">Eliminar</button>
     </div>
     <div class="existing-file">
       <a target="blank_" href="{{urlIcon}}" *ngIf="urlIcon !== ''"><img src="{{urlIcon}}" width="300" height="210" ></a>

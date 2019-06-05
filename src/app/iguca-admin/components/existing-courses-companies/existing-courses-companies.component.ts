@@ -34,7 +34,6 @@ export class ExistingCoursesCompaniesComponent implements OnInit {
             courseData.key = key;
             return courseData;
           });
-          console.log(this.courses);
         });
       } else {
         this.isCourses = false;
@@ -45,7 +44,6 @@ export class ExistingCoursesCompaniesComponent implements OnInit {
             courseData.key = key;
             return courseData;
           });
-          console.log(this.companies);
         });
       }
     });
@@ -60,10 +58,6 @@ export class ExistingCoursesCompaniesComponent implements OnInit {
 
   newCourse() {
     this.isCourses ? this.router.navigate([`/courses/new`]) : this.router.navigate([`/companies/new`]);
-  }
-
-  homePage() {
-    this.router.navigate([`admin`]);
   }
 
   deleteCourse(course: IgucaCourse | IgucaCompany) {

@@ -4,7 +4,6 @@
     height: 100%;
 }
 
-
 .existing-courses-content {
     height: 100%;
     min-height: fit-content;
@@ -14,31 +13,6 @@
     align-items: center;
     margin: 0 20px;
     overflow-y: scroll;
-}
-
-.course-loader-title { 
-    margin: 15px 0;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-
-    .course-loader-title-span {
-        font-size: 35px;
-        line-height: 44px;
-        text-align: start;
-        color: #252627;
-        font-weight: bold;
-    }
-
-    .course-loader-subtitle {
-        font-size: 25px;
-        line-height: 44px;
-        text-align: start;
-        color: #252627;
-        height: 44px;
-        overflow: hidden;
-        word-break: break-all;
-    }
 } 
 
 .charge-courses {
@@ -147,6 +121,12 @@
 }
 
 @media (max-width: 850px) {
+    .existing-courses-content {
+        margin: 50px 20px;
+        .course-loader {
+            margin: 0;
+        }
+    }
     .course-element {
         width: calc(50% - 20px);
     }

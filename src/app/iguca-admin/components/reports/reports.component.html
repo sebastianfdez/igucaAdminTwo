@@ -1,8 +1,15 @@
-<div class="reports-content">
- 
-  <mat-spinner *ngIf="!isReportCharged"></mat-spinner>
+<div class="back-iguca" *ngIf="!isLoading">
+  <button mat-flat-button class="big" color="primary" routerLink="/admin">
+    {{"< Volver"}}
+  </button>
+  <button mat-flat-button class="small" color="primary" routerLink="/admin">
+    {{"<"}}
+  </button>
+</div>
 
-  <div class="reports-content" *ngIf="isReportCharged">
+<div class="reports-content" *ngIf="!isLoading">
+
+  <div class="reports-content">
     
     <div class="course-list">
   
@@ -16,7 +23,7 @@
             {{courseReport.name}}
           </div>
           <div class="button-export">
-            <div class="data-loader" *ngIf="isReportCharged">
+            <div class="data-loader">
               <button mat-button type="button" class="excel-button" (click)="save(excelexport)" >Export To Excel</button>
               <button mat-button type="button" class="delete-button" (click)="deleteReport(courseReport)">Eliminar</button>
                 <kendo-excelexport [data]="courseReport.reports"
@@ -37,9 +44,7 @@
         </div>
       </div>
     </div>
-  
-    <div class="home-button">
-      <button mat-button class="home-page-button" (click)="homePage()">Volver a Inicio</button> 
-    </div>
   </div>
 </div>
+ 
+<mat-spinner *ngIf="isLoading"></mat-spinner>

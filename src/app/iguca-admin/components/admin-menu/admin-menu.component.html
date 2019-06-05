@@ -1,26 +1,30 @@
 <div class="app-content">
 
-  <div class="menu-title">
-    <span class="menu-title-p">Administrador IGUCA</span>
+  <div class="iguca-title">
+    <span>Administrador IGUCA</span>
   </div>
 
-  <div class="menu-old-courses">
+  <div class="section">
     <button mat-button (click)="showExistingCourses()">Ver Cursos Existentes</button>
   </div>
 
-  <div class="menu-old-company">
+  <div class="section">
     <button mat-button (click)="showExistingCompanies()">Ver Companias Existentes</button>
   </div>
 
-  <div class="menu-rendiciones">
+  <div class="section">
     <button mat-button (click)="openReports()">Ver Reportes Existentes</button>
   </div>
 
-  <div class="menu-logo">
-    <img class="menu-logo-img" [src]="igucaLogo"/>
+  <div class="section">
+    <button mat-button (click)="openSurvey()">Encuesta de Satisfacción</button>
   </div>
 
-  <div class="menu-logout">
+  <div class="menu-logo">
+    <img class="menu-logo-img" src="../../assets/Logoconfondoblanco.jpg"/>
+  </div>
+
+  <div class="section">
     <button mat-button (click)="logOut()">Log out</button>
   </div>
 

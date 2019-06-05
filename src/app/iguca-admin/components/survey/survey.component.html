@@ -1,0 +1,86 @@
+<div class="back-iguca" *ngIf="!isLoading">
+  <button mat-flat-button class="big" color="primary" routerLink="/admin">
+    {{"< Volver"}}
+  </button>
+  <button mat-flat-button class="small" color="primary" routerLink="/admin">
+    {{"<"}}
+  </button>
+</div>
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+<div class="menu-logo-iguca" *ngIf="isLoading">
+  <img src="../../../../assets/Logoblancofondofucsia.jpg"/>
+</div>
+
+<div class="content">
+  <div *ngIf="!isLoading" class="content">
+    <div class="iguca-title">
+      <span>
+        Editar Encuesta de Satisfacción
+      </span>
+    </div> 
+  </div>
+  
+  <div class="iguca-field mat-elevation-z1" *ngIf="!isLoading">
+  
+    <div class="iguca-field-title">
+      <span>
+        Crear encuesta de satisfacción.
+      </span>
+    </div>
+    
+    <form class="iguca-form">
+      <mat-form-field class="iguca-form-field">
+        <textarea matInput placeholder="Introducción" [(ngModel)]="survey.mainText" [ngModelOptions]="{standalone: true}">
+        </textarea>
+      </mat-form-field>
+    </form> 
+    
+    <form class="iguca-form">
+      <mat-form-field class="iguca-form-field">
+        <textarea matInput placeholder="Texto explicativo preguntas aspectos Académicos" [(ngModel)]="survey.questionVoteText"
+        [ngModelOptions]="{standalone: true}"></textarea>
+      </mat-form-field>
+    </form>
+  
+    <div class="question-list">
+      <form class="iguca-form" *ngFor="let question of survey.questionsVote; let i = index">
+        <mat-form-field class="iguca-form-field">
+          <input matInput placeholder="Pregunta de evaluación {{i+1}}" [(ngModel)]="question.question"
+          [ngModelOptions]="{standalone: true}">
+        </mat-form-field>
+        <mat-icon (click)="deleteQuestion(i, false)">delete</mat-icon>
+      </form>
+    </div>
+  
+    <div class="add-question-button">
+      <button mat-button (click)="pushQuestion(false)">Agregar Pregunta</button>
+    </div>
+    
+    <form class="iguca-form">
+      <mat-form-field class="iguca-form-field">
+        <textarea matInput placeholder="Texto explicativo preguntas abiertas" [(ngModel)]="survey.questionOpenTest"
+        [ngModelOptions]="{standalone: true}"></textarea>
+      </mat-form-field>
+    </form>
+  
+    <div class="question-list">
+      <form class="iguca-form" *ngFor="let question of survey.questionsOpen; let i = index">
+        <mat-form-field class="iguca-form-field">
+          <input matInput placeholder="Pregunta abierta {{i+1}}" [(ngModel)]="question.question"
+          [ngModelOptions]="{standalone: true}">
+        </mat-form-field>
+        <mat-icon (click)="deleteQuestion(i, true)">delete</mat-icon>
+      </form>
+    </div>
+  
+    <div class="add-question-button">
+      <button mat-button (click)="pushQuestion(true)">Agregar Pregunta</button>
+    </div>
+  
+  </div>
+  
+  <div class="iguca-send-button" *ngIf="!isLoading">
+    <button mat-button *ngIf="!this.isNewCourse" (click)="updateSurvey()">Guardar Cambios</button>
+  </div>
+
+</div>

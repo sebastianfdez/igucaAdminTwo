@@ -9,8 +9,6 @@ import { Router } from '@angular/router';
 })
 export class AdminMenuComponent implements OnInit {
 
-  public igucaLogo = '../../assets/Logoconfondoblanco.jpg';
-
   constructor(
     private afAuth: AngularFireAuth,
     private router: Router,
@@ -33,6 +31,10 @@ export class AdminMenuComponent implements OnInit {
 
     openReports() {
       this.router.navigate(['reports']);
+    }
+
+    openSurvey() {
+      this.router.navigate(['survey']);
     }
 
     showExistingCourses() {

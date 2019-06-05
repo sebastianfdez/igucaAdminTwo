@@ -1,10 +1,19 @@
-<div class="info-course-loader-content">
+<div class="back-iguca" *ngIf="!isLoading">
+  <button mat-flat-button class="big" color="primary" routerLink="/courses">
+    {{"< Volver"}}
+  </button>
+  <button mat-flat-button class="small" color="primary" routerLink="/courses">
+    {{"<"}}
+  </button>
+</div>
 
-  <div class="course-loader-main-title">
-    <span class="course-loader-main-title-span" *ngIf="isNewCourse">
+<div class="info-course-loader-content" *ngIf="!isLoading">
+
+  <div class="iguca-title">
+    <span *ngIf="isNewCourse">
       Agregar nuevo Curso
     </span>
-    <span class="course-loader-main-title-span" *ngIf="!isNewCourse">
+    <span *ngIf="!isNewCourse">
       Editar Curso
     </span>
   </div>
@@ -250,9 +259,7 @@
           </button>
         </div>
       </div>
-    </div>
-
-    
+    </div>    
 
     <div class="add-question-button">
       <button mat-button (click)="pushQuestion()">Agregar Pregunta</button>
@@ -273,3 +280,5 @@
   </div>
 
 </div>
+
+<mat-spinner *ngIf="isLoading"></mat-spinner>

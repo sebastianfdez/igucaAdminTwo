@@ -20,15 +20,6 @@ mat-spinner {
   position: absolute;
 }
 
-.menu-logo {
-  width: 300px;
-
-  .menu-logo-img {
-    width: 300px;
-    height: auto;
-  }
-}
-
 .company-management-content {
   min-height: fit-content;
   width: 100%;
@@ -62,7 +53,6 @@ mat-spinner {
     align-items: center;
 
     .company-form {
-      height: 100%;
       display: flex;
       width: calc(100% - 60px);
       margin: 0 30px;
@@ -94,7 +84,7 @@ mat-spinner {
       width: 100%;
 
       .company-form {
-        height: 100%;
+        height: initial;
         display: flex;
         width: calc(100% - 60px);
         margin: 0 30px;

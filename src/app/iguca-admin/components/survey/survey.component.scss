@@ -1,0 +1,29 @@
+:host {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    place-content: center;
+    padding: 90px 0 0 0;
+    overflow-y: scroll;
+}
+
+.content {
+    min-height: fit-content;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .question-list {
+        padding: 0 20px;
+    
+        .iguca-form {
+            margin-top: 0 !important;
+            align-items: center;
+            .iguca-form-field {
+                width: calc(90% - 60px);
+            }
+        }
+    }
+
+}

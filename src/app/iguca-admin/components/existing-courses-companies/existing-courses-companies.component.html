@@ -1,7 +1,15 @@
+<div class="back-iguca" *ngIf="!isLoading">
+  <button mat-flat-button class="big" color="primary" routerLink="/admin">
+    {{"< Volver"}}
+  </button>
+  <button mat-flat-button class="small" color="primary" routerLink="/admin">
+    {{"<"}}
+  </button>
+</div>
 <div class="existing-courses-content">
 
-  <div class="course-loader-title">
-    <span class="course-loader-title-span">
+  <div class="iguca-title">
+    <span>
       Administrador de {{ isCourses ? 'Cursos' : 'Compañias'}}
     </span>
   </div>
@@ -20,10 +28,6 @@
 
   <div class="menu-new-course">
     <button mat-button (click)="newCourse()">Agregar Nuevo {{ isCourses ? 'Curso' : 'Compañia'}}</button>
-  </div>
-
-  <div class="home-buttons">
-    <button mat-button class="home-page-button" (click)="homePage()">Volver a Inicio</button> 
   </div>
 </div>
 

@@ -89,8 +89,6 @@ export class CompanyDetailComponent implements OnInit {
   }
 
   deleteCourse(courseName: string, idSence: string) {
-    console.log(courseName);
-    console.log(this.openCompany.courses);
     this.openCompany.courses = this.openCompany.courses.filter((course_) => {
       return course_ !== this.allCourses.filter(course__ => course__.name === courseName)[0].key;
     });

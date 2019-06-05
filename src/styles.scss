@@ -57,3 +57,154 @@ mat-button-toggle-group {
     }
   }
 }
+
+.iguca-field {
+  width: calc(100% - 40px);
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  overflow: hidden;
+  max-width: 800px;
+
+  .iguca-field-title {
+    padding: 15px 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #FB1D5E;
+    color: #ffffff;
+
+    span {
+      font-size: 35px;
+      line-height: 44px;
+      text-align: start;
+      word-break: break-all;
+      height: 50px;
+      overflow: hidden;
+    }
+  }
+
+  .iguca-form {
+    display: flex;
+    margin-top: 20px;
+    width: 100%;
+
+    .iguca-form-field {
+      display: flex;
+      width: calc(100% - 60px);
+      margin: 0 30px;
+    }
+  }
+}
+
+.iguca-send-button {
+  margin: 10px 0;
+  width: 300px;
+  max-width: 300px;
+
+  button {
+    color: #ffffff;
+    width: 300px;
+    background-color: #FB1D5E;
+  }
+}
+
+.add-question-button {
+  margin: 10px 0;
+  width: 300px;
+  max-width: 300px;
+  place-self: center;
+
+  .mat-button {
+    background-color: green;
+    width: 100%;
+    color: #ffffff;
+  }
+}
+
+
+.iguca-title {
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  span {
+    font-size: 35px;
+    line-height: 44px;
+    text-align: start;
+    color: #252627;
+    font-weight: bold;
+  }
+
+  .iguca-subtitle {
+      font-size: 25px;
+      line-height: 44px;
+      text-align: start;
+      color: #252627;
+      height: 44px;
+      overflow: hidden;
+      word-break: break-all;
+  }
+}
+
+.menu-logo-iguca {
+  width: 300px;
+
+  img {
+    width: 300px;
+    height: auto;
+  }
+}
+
+.back-iguca {
+    position: absolute;
+    left: 30px;
+    top: 50px;
+
+    button {
+        min-width: fit-content;
+        width: 120px;
+
+        &.small {
+            display: none;
+        }
+    }
+}
+
+
+@media (max-width: 970px) {
+  .back-iguca {
+      top: 30px;
+      button {
+          width: 90px;
+      }
+  }
+}
+
+@media (max-width: 580px) {
+  .back-iguca {
+      top: 10px;
+      button {
+          width: 90px;
+      }
+  }
+}
+
+@media (max-width: 490px) {
+  .back-iguca {
+      top: 10px;
+      button {
+          width: 45px;
+          &.small {
+              display: inherit;
+          }
+          &.big {
+              display: none;
+          }
+      }
+  }
+}

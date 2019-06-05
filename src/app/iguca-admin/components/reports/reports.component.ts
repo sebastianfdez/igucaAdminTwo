@@ -15,7 +15,7 @@ import { WarningComponent } from '../warning/warning.component';
 })
 export class ReportsComponent implements OnInit {
 
-  isReportCharged = false;
+  isLoading = false;
   isReportChargedKeys = false;
   date = new Date();
 
@@ -37,6 +37,7 @@ export class ReportsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.isLoading = true;
     combineLatest(
       this.db.list<{[key: string]: UserReport}>('Reports').snapshotChanges(),
       this.db.list<IgucaCourse>('Cursos').snapshotChanges(),
@@ -68,8 +69,7 @@ export class ReportsComponent implements OnInit {
           questionsHeaders: courseMatch.questionsHeaders,
         });
       });
-      this.isReportCharged = true;
-      console.log(this.coursesNamesReports);
+      this.isLoading = false;
       this.addResponses();
     });
   }
@@ -93,7 +93,6 @@ export class ReportsComponent implements OnInit {
   getDateFormatted(dateString: string): string {
     if (dateString) {
       const date = new Date(dateString);
-      // tslint:disable-next-line:max-line-length
       return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()} (${date.getHours()}:${date.getMinutes()}hr)`;
     } else {
       return 'Fecha no encontrada';
@@ -102,10 +101,6 @@ export class ReportsComponent implements OnInit {
 
   compareMatch(a: string, b: string): boolean {
     return a ? a[0].toLowerCase() === b[0].toLowerCase() : true;
-  }
-
-  homePage() {
-    this.router.navigate([`admin`]);
   }
 
   deleteReport(courseReport: {

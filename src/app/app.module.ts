@@ -37,6 +37,7 @@ import {
 import { CompanyDetailComponent } from './iguca-admin/components/company-detail/company-detail.component';
 import { ReportsComponent } from './iguca-admin/components/reports/reports.component';
 import { ExcelExportModule } from '@progress/kendo-angular-excel-export';
+import { SurveyComponent } from './iguca-admin/components/survey/survey.component';
 
 
 const routes: Routes = [
@@ -45,6 +46,7 @@ const routes: Routes = [
   { path: 'courses', component: ExistingCoursesCompaniesComponent, canActivate: [AuthGuardService], data: { courses: true } },
   { path: 'companies', component: ExistingCoursesCompaniesComponent, canActivate: [AuthGuardService], data: { courses: false } },
   { path: 'reports', component: ReportsComponent, canActivate: [AuthGuardService] },
+  { path: 'survey', component: SurveyComponent, canActivate: [AuthGuardService] },
   { path: 'courses/new', component: CourseDetailComponent, canActivate: [AuthGuardService] },
   { path: 'courses/:id', component: CourseDetailComponent, canActivate: [AuthGuardService] },
   { path: 'companies/new', component: CompanyDetailComponent, canActivate: [AuthGuardService] },
@@ -76,6 +78,7 @@ const materialModules = [
     WarningComponent,
     CompanyDetailComponent,
     ReportsComponent,
+    SurveyComponent,
   ],
   imports: [
     BrowserModule,

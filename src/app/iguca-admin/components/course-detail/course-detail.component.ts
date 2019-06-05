@@ -15,16 +15,13 @@ import { WarningComponent } from '../warning/warning.component';
 export class CourseDetailComponent implements OnInit {
 
   public fileLoaderManual: FileUploader = new FileUploader({});
-
   public fileLoaderExersices: FileUploader = new FileUploader({});
-
   public fileLoaderAnswers: FileUploader = new FileUploader({});
-
   public fileLoaderExam: FileUploader = new FileUploader({});
-
   public fileLoaderQuestions: FileUploader[] = [];
 
   isNewCourse = true;
+  isLoading = false;
   public urlAnswers = '';
   public urlExersices = '';
   public urlExam = '';
@@ -52,6 +49,7 @@ export class CourseDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.isLoading = true;
     this.route.params.subscribe((params) => {
       if (params.id) {
         this.db.object<IgucaCourse>(`Cursos/${params.id}`).snapshotChanges()
@@ -61,10 +59,12 @@ export class CourseDetailComponent implements OnInit {
           this.setCourseData();
           this.setFileUploadersListeners();
           this.getStorageUrl();
+          this.isLoading = false;
         });
         this.isNewCourse = false;
       } else {
         this.pushQuestion();
+        this.isLoading = false;
       }
     });
   }
