@@ -46,7 +46,7 @@ export class SurveyComponent implements OnInit {
   }
 
   deleteQuestion(i: number, open: boolean) {
-    (open ? this.survey.questionsOpen : this.survey.questionsVote).splice(i, 1);
+    (open ? this.survey.questionsOpen : this.survey.questionsVote).splice(i, 1 );
   }
 
 }

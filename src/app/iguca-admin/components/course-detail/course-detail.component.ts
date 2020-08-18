@@ -64,6 +64,7 @@ export class CourseDetailComponent implements OnInit {
         this.isNewCourse = false;
       } else {
         this.pushQuestion();
+        this.setFileUploadersListeners();
         this.isLoading = false;
       }
     });
