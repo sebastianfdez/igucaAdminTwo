@@ -6,7 +6,7 @@ export interface SurveyQuestion {
 export interface Survey {
     mainText: string;
     questionVoteText: string;
-    questionOpenTest: string;
+    questionOpenText: string;
     questionsVote: SurveyQuestion[];
     questionsOpen: SurveyQuestion[];
 }
