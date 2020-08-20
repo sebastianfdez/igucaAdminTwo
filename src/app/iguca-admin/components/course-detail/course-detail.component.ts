@@ -168,6 +168,7 @@ export class CourseDetailComponent implements OnInit {
   pushQuestion() {
     const newQuestion: IgucaQuestion = new IgucaQuestion();
     newQuestion.alternatives = this.openCourse.alternatives;
+    newQuestion.hasFile = false;
     if ( this.openCourse.alternatives) {
       newQuestion.number = this.openCourse.finalExam.length + 1;
       this.openCourse.finalExam.push(newQuestion);
